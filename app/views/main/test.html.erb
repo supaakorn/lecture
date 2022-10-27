@@ -5,15 +5,11 @@
  
 <% @time.to_i.times{ |i| %>
     <label for="subject[name]"> subject <%= i+1 %> </label>
-    <input type="text" name="subject[name][]" value="<%if !@name.blank? %><%=@name[i]%><% end %>">
+    <input type="text" name="subject[name][]" value="" required>
     
     <label for="subject[score]"> score <%= i+1 %> </label>
-    <input type="number" name="subject[score][]" value="<%if !@score.blank? %><%=@score[i]%><% end %>">
+    <input type="number" name="subject[score][]" value="" required>
 
-    <% if @blank.to_i == i.to_i %>
-    <%= "Fill the blank !!!"%>
-    <% idx = idx+1 %>
-    <%end%>
     
     <br>
 <% }%>
