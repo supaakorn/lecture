@@ -1,0 +1,8 @@
+<h1>Main#first_page</h1>
+
+<p>Find me in app/views/main/first_page.html.erb</p>
+<%= form_with url: "/main/test", method: "post", data:{turbo: false} do|form| %>
+ 
+<%= form.select :time, [1,2,3,4,5,6,7,8,9,10] %>
+<%= form.submit %>
+<% end %>

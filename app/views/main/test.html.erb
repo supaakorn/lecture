@@ -1,13 +1,20 @@
 <h1>Main#test</h1>
 <%= form_with url: "/main/test_post", method: "post", data:{turbo: false} do|form| %>
 <%= hidden_field_tag(:time,@time) %>
+<% idx = 0%>
  
 <% @time.to_i.times{ |i| %>
     <label for="subject[name]"> subject <%= i+1 %> </label>
-    <input type="text" name="subject[name][]" value="">
+    <input type="text" name="subject[name][]" value="<%if !@name.blank? %><%=@name[i]%><% end %>">
+    
     <label for="subject[score]"> score <%= i+1 %> </label>
-    <input type="number" name="subject[score][]" value="">
-    <% if Subject.find_by(name: )%>
+    <input type="number" name="subject[score][]" value="<%if !@score.blank? %><%=@score[i]%><% end %>">
+
+    <% if @blank.to_i == i.to_i %>
+    <%= "Fill the blank !!!"%>
+    <% idx = idx+1 %>
+    <%end%>
+    
     <br>
 <% }%>
 <%= form.submit %>
